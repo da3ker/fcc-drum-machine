@@ -12,19 +12,15 @@ function App() {
   const [bank, setBank] = useState(bankOne);
   const [background, setBackground] = useState(drumsBg);
 
-  var recordArray = recording.split(" ");
-
+  
   const playRecording = () => {
     let index = 0;
-    let audioTag = document.getElementById(recordArray[index]);
+    let recordArray = recording.split(" ");
     const interval = setInterval(() => {
+      const audioTag = document.getElementById(recordArray[index]);
       audioTag.volume = volume;
       audioTag.currentTime = 0;
-      if(recordArray === ""){
-        audioTag.pause();
-      }else {
-        audioTag.play()
-      }
+      audioTag.play()
       index++;
     },speed * 600)
     setTimeout(
@@ -44,11 +40,11 @@ function App() {
           </div>
           <div id="display">
             <div className="bankButtons">
-              <button onClick={() => {setBank(bankOne); setRecording("");recordArray = ""; setBackground(drumsBg)}} 
+              <button onClick={() => {setBank(bankOne); setRecording(""); setBackground(drumsBg)}} 
                 className ="btn btn-outline-warning btn-sm">
                 Heater Kit
               </button>
-              <button onClick={() => {setBank(bankTwo); setRecording("");recordArray = ""; setBackground(pianoBg)}}
+              <button onClick={() => {setBank(bankTwo); setRecording(""); setBackground(pianoBg)}}
                 className ="btn btn-outline-warning btn-sm">
                 Smooth Piano Kit
               </button>
@@ -62,7 +58,7 @@ function App() {
                 <>
                   <div className="recordingButtons">
                     <button onClick={playRecording} className="btn btn-outline-warning">Play</button>
-                    <button onClick={() => {setRecording(""); recordArray = "";}} className="btn btn-outline-danger">Clear</button>
+                    <button onClick={() => setRecording("")} className="btn btn-outline-danger">Clear</button>
                   </div>
                   <br/>
                   <div className="speed">
