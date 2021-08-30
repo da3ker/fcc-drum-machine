@@ -28,11 +28,12 @@ body{
       border: $default-border;
       border-radius: 4px;
       width: 47.5vw;
-      min-width: 300px;
+      min-width: 350px;
       height: 47.5vh;
-      min-height: 300px;
+      min-height: 450px;
       display: flex;
       justify-content: space-evenly;
+      align-content: center;
       align-items: center;
       #drum-machine{
         width: $default-w;
